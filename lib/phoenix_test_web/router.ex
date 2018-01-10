@@ -17,6 +17,9 @@ defmodule PhoenixTestWeb.Router do
     pipe_through :browser # Use the default browser stack
 
     get "/", PageController, :index
+    get "/things", PageController, :show
+    post "/", PageController, :create
+    delete "/", PageController, :delete
   end
 
   # Other scopes may use custom stacks.

@@ -20,6 +20,7 @@ defmodule PhoenixTestWeb do
   def controller do
     quote do
       use Phoenix.Controller, namespace: PhoenixTestWeb
+
       import Plug.Conn
       import PhoenixTestWeb.Router.Helpers
       import PhoenixTestWeb.Gettext
