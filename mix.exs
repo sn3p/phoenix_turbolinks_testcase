@@ -40,7 +40,8 @@ defmodule PhoenixTest.Mixfile do
       {:phoenix_html, "~> 2.10"},
       {:phoenix_live_reload, "~> 1.0", only: :dev},
       {:phoenix_pubsub, "~> 1.0"},
-      {:postgrex, ">= 0.0.0"}
+      {:postgrex, ">= 0.0.0"},
+      {:turbolinks, "~> 0.3.2"}
     ]
   end
 

@@ -3,9 +3,10 @@
     Test case for phoenix_html issue <a href="https://github.com/phoenixframework/phoenix_html/issues/192" target="_blank">#192</a>
   </h2>
   <p>
-    When trying to create a <code>:delete</code> link using <a href="https://hexdocs.pm/phoenix_html/Phoenix.HTML.Link.html#link/2" target="_blank"><code>link/2</code></a>
+    I'm using <a href="https://hexdocs.pm/phoenix_html/Phoenix.HTML.Link.html#link/2" target="_blank"><code>link/2</code></a>
+    to create a <code>:get</code>, <code>:post</code> and <code>:delete</code> link:
   </p>
-  <pre><code>link("delete", to: "/everything", method: :delete)
+  <pre><code>link("show", to: page_path(@conn, :show))
 link("post", to: page_path(@conn, :create), method: :post)
 link("delete", to: page_path(@conn, :delete), method: :delete)</code></pre>
   <p>
