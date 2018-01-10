@@ -4,14 +4,16 @@
   </h2>
   <p>
     I'm using <a href="https://hexdocs.pm/phoenix_html/Phoenix.HTML.Link.html#link/2" target="_blank"><code>link/2</code></a>
-    to create a <code>:get</code>, <code>:post</code> and <code>:delete</code> link:
+    to create <code>:get</code>, <code>:post</code> and <code>:delete</code> links:
   </p>
-  <pre><code>link("show", to: page_path(@conn, :show))
-link("post", to: page_path(@conn, :create), method: :post)
-link("delete", to: page_path(@conn, :delete), method: :delete)</code></pre>
+  <pre><code>link("show",   to: things_path(@conn, :show))
+link("post",   to: things_path(@conn, :create), method: :post)
+link("delete", to: things_path(@conn, :delete), method: :delete, data: [remote: true])</code></pre>
   <p>
-    <%= link("show", to: new_path(@conn, :show)) %> |
-    <%= link("post", to: new_path(@conn, :create), method: :post, data: [remote: true]) %> |
-    <%= link("delete", to: new_path(@conn, :delete), method: :delete, data: [remote: true]) %>
+    <%= link("show",   to: things_path(@conn, :show)) %> |
+    <%= link("post",   to: things_path(@conn, :create), method: :post) %> |
+    <%= link("delete", to: things_path(@conn, :delete), method: :delete, data: [remote: true]) %>
   </p>
+  <hr>
+  <p>The <code>data: [remote: true]</code> in the delete link is optional, making it an XHR request (requires <a href="https://github.com/imranismail/ex_turbolinks" target="_blank">Turbolinks</a>).</p>
 </div>

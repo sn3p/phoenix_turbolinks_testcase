@@ -14,7 +14,7 @@ table {
   border-bottom: 1px solid #e5e5e5;
   padding-right: 15px;
   padding-left: 15px;
-  margin-top: 15px;
+  margin-top: 20px;
   text-align: center;
 }
 
@@ -29,7 +29,7 @@ table {
 
 @media (min-width: 768px) {
   .container {
-    max-width: 730px;
+    max-width: 900px;
   }
 }
 .container-narrow > hr {

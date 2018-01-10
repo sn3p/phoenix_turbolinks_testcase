@@ -19,9 +19,10 @@ defmodule PhoenixTestWeb.Router do
     pipe_through(:browser)
 
     get("/", PageController, :index)
-    get("/things", NewController, :show)
-    post("/things", NewController, :create)
-    delete("/things", NewController, :delete)
+
+    get("/things", ThingsController, :show)
+    post("/things", ThingsController, :create)
+    delete("/things", ThingsController, :delete)
   end
 
   # Other scopes may use custom stacks.
