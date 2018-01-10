@@ -10,8 +10,8 @@
 link("post", to: page_path(@conn, :create), method: :post)
 link("delete", to: page_path(@conn, :delete), method: :delete)</code></pre>
   <p>
-    <%= link("show", to: page_path(@conn, :show)) %> |
-    <%= link("post", to: page_path(@conn, :create), method: :post) %> |
-    <%= link("delete", to: page_path(@conn, :delete), method: :delete) %>
+    <%= link("show", to: new_path(@conn, :show)) %> |
+    <%= link("post", to: new_path(@conn, :create), method: :post, data: [remote: true]) %> |
+    <%= link("delete", to: new_path(@conn, :delete), method: :delete, data: [remote: true]) %>
   </p>
 </div>
