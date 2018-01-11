@@ -24,6 +24,10 @@
       <main role="main">
         <%= render @view_module, @view_template, assigns %>
       </main>
+
+      <footer class="footer">
+        <a href="https://github.com/sn3p/phoenix_test" target="_blank">GitHub</a>
+      </footer>
     </div>
   </body>
 </html>

@@ -1,19 +1,38 @@
 <div class="jumbotron">
-  <h2>
-    Test case for phoenix_html issue <a href="https://github.com/phoenixframework/phoenix_html/issues/192" target="_blank">#192</a>
-  </h2>
+  <h3>Test case for the following issues:</h2>
+  <p>
+    <ul>
+      <li>phoenix_html issue <a href="https://github.com/phoenixframework/phoenix_html/issues/192" target="_blank">#192</a></li>
+      <li>ex_turbolinks issue <a href="https://github.com/imranismail/ex_turbolinks/issues/6" target="_blank">#6</a></li>
+    </ul>
+  </p>
+
+  <hr>
+
   <p>
     I'm using <a href="https://hexdocs.pm/phoenix_html/Phoenix.HTML.Link.html#link/2" target="_blank"><code>link/2</code></a>
     to create <code>:get</code>, <code>:post</code> and <code>:delete</code> links:
   </p>
+
   <pre><code>link("show",   to: things_path(@conn, :show))
 link("post",   to: things_path(@conn, :create), method: :post)
 link("delete", to: things_path(@conn, :delete), method: :delete, data: [remote: true])</code></pre>
-  <p>
+
+  <p><small>
+    The <code>data: [remote: true]</code> in the delete link is optional, making it an XHR request.
+  </small></p>
+
+  <p class="test-links">
     <%= link("show",   to: things_path(@conn, :show)) %> |
     <%= link("post",   to: things_path(@conn, :create), method: :post) %> |
-    <%= link("delete", to: things_path(@conn, :delete), method: :delete, data: [remote: true]) %>
+    <%= link("delete", to: things_path(@conn, :delete), method: :delete, data: [remote: true]) %> |
   </p>
+
   <hr>
-  <p>The <code>data: [remote: true]</code> in the delete link is optional, making it an XHR request (requires <a href="https://github.com/imranismail/ex_turbolinks" target="_blank">Turbolinks</a>).</p>
+  <p>
+    Using <a href="https://github.com/imranismail/ex_turbolinks/issues/6" target="_blank">Turbolinks</a> the <code>:post</code> and <code>:delete</code> links stop working.
+    It seems <code>data-to="/things"</code> is ignored and intead it follows <code>href="#"</code>, causing errors like this:
+  </p>
+
+  <pre><code>no route found for POST / (PhoenixTestWeb.Router)</code></pre>
 </div>
