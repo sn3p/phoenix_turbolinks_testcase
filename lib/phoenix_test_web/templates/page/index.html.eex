@@ -25,14 +25,27 @@ link("delete", to: things_path(@conn, :delete), method: :delete, data: [remote: 
   <p class="test-links">
     <%= link("show",   to: things_path(@conn, :show)) %> |
     <%= link("post",   to: things_path(@conn, :create), method: :post) %> |
-    <%= link("delete", to: things_path(@conn, :delete), method: :delete, data: [remote: true]) %> |
+    <%= link("delete", to: things_path(@conn, :delete), method: :delete, data: [remote: true]) %>
   </p>
 
   <hr>
   <p>
-    Using <a href="https://github.com/imranismail/ex_turbolinks/issues/6" target="_blank">Turbolinks</a> the <code>:post</code> and <code>:delete</code> links stop working.
-    It seems <code>data-to="/things"</code> is ignored and intead it follows <code>href="#"</code>, causing errors like this:
+    But when using <a href="https://github.com/imranismail/ex_turbolinks/issues/6" target="_blank">Turbolinks</a> the <code>:post</code> and <code>:delete</code> links stop working.
+    It seems <code>data-to="/things"</code> is ignored and instead it follows <code>href="#"</code>, causing errors like this:
   </p>
 
   <pre><code>no route found for POST / (PhoenixTestWeb.Router)</code></pre>
+
+  <hr>
+
+  <h3>Workaround</h2>
+  <p>The following example works with Turbolinks:</p>
+
+  <pre><code>link("post",   to: things_path(@conn, :create), data: [method: :post])
+link("delete", to: things_path(@conn, :delete), data: [method: :delete, remote: true])</code></pre>
+
+  <p class="test-links">
+    <%= link("post",   to: things_path(@conn, :create), data: [method: :post]) %> |
+    <%= link("delete", to: things_path(@conn, :delete), data: [method: :delete, remote: true]) %>
+  </p>
 </div>

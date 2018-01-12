@@ -9,11 +9,13 @@ defmodule PhoenixTestWeb.ThingsController do
     conn
     |> put_flash(:info, "Post was successful.")
     |> redirect(to: page_path(conn, :index))
+    # |> render("show.html")
   end
 
   def delete(conn, _params) do
     conn
     |> put_flash(:error, "Delete was successful.")
     |> redirect(to: page_path(conn, :index))
+    # |> render("show.html")
   end
 end
