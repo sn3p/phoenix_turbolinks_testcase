@@ -3,7 +3,7 @@
 - phoenix_html issue [#192](https://github.com/phoenixframework/phoenix_html/issues/192)
 - ex_turbolinks issue [#6](https://github.com/imranismail/ex_turbolinks/issues/6)
 
-# Problem
+## Problem
 
 I'm using [`link/2`](https://hexdocs.pm/phoenix_html/Phoenix.HTML.Link.html#link/2) to render `:get`, `:post` and `:delete` links:
 
@@ -21,7 +21,7 @@ But when using Turbolinks the `:post` and `:delete` links stop working. It seems
 no route found for POST / (PhoenixTestWeb.Router)
 ```
 
-# Workaround
+## Workaround
 
 The following examples works with Turbolinks:
 
