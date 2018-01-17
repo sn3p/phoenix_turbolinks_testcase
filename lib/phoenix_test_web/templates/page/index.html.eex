@@ -1,11 +1,11 @@
 <div class="jumbotron">
-  <h3>Test case for the following issues:</h2>
-  <p>
-    <ul>
-      <li>phoenix_html issue <a href="https://github.com/phoenixframework/phoenix_html/issues/192" target="_blank">#192</a></li>
-      <li>ex_turbolinks issue <a href="https://github.com/imranismail/ex_turbolinks/issues/6" target="_blank">#6</a></li>
-    </ul>
-  </p>
+  <h2>Phoenix + Turbolinks test case</h2>
+
+  <p>Related issues:</p>
+  <ul>
+    <li>phoenix_html issue <a href="https://github.com/phoenixframework/phoenix_html/issues/192" target="_blank">#192</a></li>
+    <li>ex_turbolinks issue <a href="https://github.com/imranismail/ex_turbolinks/issues/6" target="_blank">#6</a></li>
+  </ul>
 
   <hr>
 
@@ -38,7 +38,7 @@ link("delete", to: things_path(@conn, :delete), method: :delete, data: [remote: 
 
   <hr>
 
-  <h3>Workaround</h2>
+  <h3>Workaround</h3>
   <p>The following example works with Turbolinks:</p>
 
   <pre><code>link("post",   to: things_path(@conn, :create), data: [method: :post])
@@ -47,5 +47,26 @@ link("delete", to: things_path(@conn, :delete), data: [method: :delete, remote: 
   <p class="test-links">
     <%= link("post",   to: things_path(@conn, :create), data: [method: :post]) %> |
     <%= link("delete", to: things_path(@conn, :delete), data: [method: :delete, remote: true]) %>
+  </p>
+
+  <hr>
+
+  <h3>What about <a href="https://hexdocs.pm/phoenix_html/Phoenix.HTML.Link.html#link/2" target="_blank"><code>button</code></a>?</h3>
+
+  <p>
+    The same approach doesn't seem to work with
+    <a href="https://hexdocs.pm/phoenix_html/Phoenix.HTML.Link.html#button/2" target="_blank"><code>button/2</code></a>
+    :(
+  </p>
+
+  <pre><code>button("delete", to: things_path(@conn, :delete), data: [method: :delete, remote: true])</code></pre>
+
+  <p>Output:</p>
+
+  <pre><code><%= ~s(<button data-csrf="csrf_token" data-method="delete" data-remote="true" data-to="/session">
+  Logout</button>) %></code></pre>
+
+  <p class="test-links">
+    <%= button("delete", to: things_path(@conn, :delete), data: [method: :delete, remote: true], class: "btn btn-primary") %>
   </p>
 </div>

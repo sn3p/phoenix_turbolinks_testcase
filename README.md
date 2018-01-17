@@ -1,7 +1,9 @@
-# Test case for the following issues
+# Phoenix + Turbolinks test case
 
-- phoenix_html issue [#192](https://github.com/phoenixframework/phoenix_html/issues/192)
-- ex_turbolinks issue [#6](https://github.com/imranismail/ex_turbolinks/issues/6)
+Related issues:
+
+* phoenix_html issue [#192](https://github.com/phoenixframework/phoenix_html/issues/192)
+* ex_turbolinks issue [#6](https://github.com/imranismail/ex_turbolinks/issues/6)
 
 ## Problem
 
@@ -28,6 +30,20 @@ The following examples works with Turbolinks:
 ```ex
 link("post",   to: things_path(@conn, :create), data: [method: :post])
 link("delete", to: things_path(@conn, :delete), data: [method: :delete, remote: true])
+```
+
+## What about [`button`](https://hexdocs.pm/phoenix_html/Phoenix.HTML.Link.html#button/2)?
+
+The same approach doesn't seem to work with [`button/2`](https://hexdocs.pm/phoenix_html/Phoenix.HTML.Link.html#button/2) :(
+
+```ex
+button("delete", to: things_path(@conn, :delete), data: [method: :delete, remote: true])
+```
+
+Output:
+
+```html
+<button data-csrf="csrf_token" data-method="delete" data-remote="true" data-to="/session">Logout</button>
 ```
 
 # To start the Phoenix server
